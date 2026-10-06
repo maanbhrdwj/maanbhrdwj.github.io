@@ -13,6 +13,10 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background: #f5f7fb;
@@ -20,200 +24,346 @@
             line-height: 1.6;
         }
 
-        header {
-            background: #172033;
-            color: white;
-            padding: 25px 8%;
-        }
-
+        /* NAVIGATION */
         nav {
+            background: #172033;
+            padding: 18px 7%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        nav h2 {
-            font-size: 22px;
+        .logo {
+            color: white;
+            font-size: 21px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
+            font-weight: 500;
         }
 
+        nav a:hover {
+            color: #4da3ff;
+        }
+
+        /* HERO */
         .hero {
-            padding: 80px 8%;
-            background: white;
+            background: linear-gradient(135deg, #172033, #243b63);
+            color: white;
             text-align: center;
+            padding: 90px 20px;
         }
 
         .hero h1 {
-            font-size: 45px;
+            font-size: 48px;
             margin-bottom: 20px;
         }
 
         .hero p {
-            max-width: 700px;
+            max-width: 750px;
             margin: auto;
-            color: #5d6678;
-            font-size: 18px;
+            font-size: 19px;
+            color: #dce7f7;
         }
 
-        .btn {
+        .button {
             display: inline-block;
             margin-top: 30px;
-            padding: 12px 25px;
-            background: #2563eb;
+            padding: 14px 28px;
+            background: #2583e9;
             color: white;
             text-decoration: none;
             border-radius: 8px;
+            font-weight: bold;
         }
 
-        .section {
-            padding: 60px 8%;
+        .button:hover {
+            background: #1268c4;
         }
 
-        .section h2 {
+        /* GENERAL SECTIONS */
+        section {
+            padding: 70px 7%;
+        }
+
+        .section-title {
             text-align: center;
-            margin-bottom: 35px;
-            font-size: 32px;
+            font-size: 34px;
+            margin-bottom: 15px;
         }
 
+        .section-subtitle {
+            text-align: center;
+            color: #667085;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* CARDS */
         .cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 25px;
         }
 
         .card {
             background: white;
-            padding: 25px;
+            padding: 28px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
         }
 
         .card h3 {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            color: #172033;
         }
 
         .card p {
-            color: #626b7d;
+            color: #667085;
         }
 
+        .icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        /* ABOUT */
+        .about {
+            background: white;
+        }
+
+        .about-box {
+            max-width: 900px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about-box p {
+            color: #667085;
+            font-size: 17px;
+        }
+
+        /* SKILLS */
+        .skill-list {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .skill {
+            margin-bottom: 22px;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .bar {
+            background: #dfe5ed;
+            height: 12px;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+            background: #2583e9;
+            border-radius: 20px;
+        }
+
+        /* PROJECTS */
+        .projects {
+            background: #eef3f9;
+        }
+
+        /* CAREER */
+        .career-card {
+            border-left: 5px solid #2583e9;
+        }
+
+        /* FOOTER */
         footer {
             background: #172033;
             color: white;
             text-align: center;
-            padding: 25px;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            color: #cbd5e1;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 65px 20px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<header>
+    <!-- NAVIGATION -->
     <nav>
-        <h2>📊 Data Hub</h2>
+        <div class="logo">Data Hub</div>
 
-        <div>
-            <a href="#analytics">Analytics</a>
-            <a href="#datascience">Data Science</a>
-            <a href="#statistics">Statistics</a>
-            <a href="#projects">Projects</a>
-        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#learn">Learn</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#career">Career</a></li>
+        </ul>
     </nav>
-</header>
 
-<section class="hero">
-    <h1>Data Analytics & Data Science Hub</h1>
 
-    <p>
-        Notes, resources, projects and practical learning
-        for students and aspiring data professionals.
-    </p>
+    <!-- HERO -->
+    <section class="hero" id="home">
 
-    <a href="#topics" class="btn">Explore Learning</a>
-</section>
+        <h1>Data Analytics & Data Science Hub</h1>
 
-<section class="section" id="topics">
-    <h2>What You'll Learn</h2>
+        <p>
+            Notes, resources, projects and practical learning
+            for students and aspiring data professionals.
+        </p>
 
-    <div class="cards">
+        <a href="#learn" class="button">
+            Explore Learning
+        </a>
 
-        <div class="card" id="analytics">
-            <h3>📊 Data Analytics</h3>
-            <p>
-                Learn Excel, SQL, Power BI, data cleaning,
-                exploratory analysis and business analytics.
-            </p>
+    </section>
+
+
+    <!-- WHAT YOU'LL LEARN -->
+    <section id="learn">
+
+        <h2 class="section-title">What You'll Learn</h2>
+
+        <p class="section-subtitle">
+            Build practical skills in data analytics, statistics,
+            programming, databases and data science.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">🐍</div>
+                <h3>Python</h3>
+                <p>
+                    Learn Python programming, NumPy, Pandas,
+                    data cleaning, analysis and visualization.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🗄️</div>
+                <h3>SQL</h3>
+                <p>
+                    Learn databases, queries, filtering, joins,
+                    aggregation and data analysis using SQL.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📊</div>
+                <h3>Excel</h3>
+                <p>
+                    Learn formulas, functions, PivotTables,
+                    charts, dashboards and data analysis.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📈</div>
+                <h3>Power BI</h3>
+                <p>
+                    Create interactive dashboards, reports,
+                    visualizations and business insights.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📐</div>
+                <h3>Statistics</h3>
+                <p>
+                    Study probability, distributions, estimation,
+                    hypothesis testing, regression and more.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🤖</div>
+                <h3>Data Science</h3>
+                <p>
+                    Understand data science concepts,
+                    machine learning and predictive analysis.
+                </p>
+            </div>
+
         </div>
 
-        <div class="card" id="datascience">
-            <h3>🤖 Data Science</h3>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section class="about">
+
+        <div class="about-box">
+
+            <h2 class="section-title">
+                About This Hub
+            </h2>
+
             <p>
-                Learn Python, machine learning,
-                data preprocessing and model evaluation.
+                Data Analytics & Data Science Hub is a practical
+                learning platform designed for students and
+                beginners who want to build strong data skills.
             </p>
-        </div>
 
-        <div class="card" id="statistics">
-            <h3>📈 Statistics</h3>
+            <br>
+
             <p>
-                Probability, distributions, hypothesis testing,
-                regression and statistical inference.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🐍 Python</h3>
-            <p>
-                Python, NumPy, Pandas, Matplotlib
-                and practical data analysis.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<section class="section" id="projects">
-    <h2>Projects</h2>
-
-    <div class="cards">
-
-        <div class="card">
-            <h3>🛒 Retail Sales Analysis</h3>
-            <p>
-                Analyze sales, profit, products and
-                business performance.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🗄️ E-commerce SQL Analysis</h3>
-            <p>
-                Use SQL to answer real-world
-                business questions.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>👥 Customer Behavior Analysis</h3>
-            <p>
-                Analyze customer data using
-                Python and Pandas.
-            </p>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    <p>© 2026 Data Analytics & Data Science Hub</p>
-    <p>Built by Maan Bhardwaj</p>
-</footer>
-
-</body>
-</html>
+                The
